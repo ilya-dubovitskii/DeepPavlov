@@ -258,10 +258,10 @@ class BertSQuADModel(LRScheduledTFModel):
         input_type_ids = [f.input_type_ids for f in features]
 
         feed_dict = self._build_feed_dict(input_ids, input_masks, input_type_ids)
-        st, end, logits, scores = self.sess.run([self.start_pred, self.end_pred, self.yp_logits, self.yp_score,
+        st, end, logits, scores, start_probs, end_probs = self.sess.run([self.start_pred, self.end_pred, self.yp_logits, self.yp_score,
                                                  self.start_probs, self.end_probs],
                                                 feed_dict=feed_dict)
-        return st, end, logits.tolist(), scores.tolist()
+        return st, end, logits.tolist(), scores.tolist(), start_probs.tolist(), end_probs.tolist()
 
 
 @register('squad_bert_infer')
