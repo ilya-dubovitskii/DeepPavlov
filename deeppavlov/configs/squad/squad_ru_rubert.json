@@ -47,7 +47,7 @@
         "in": ["bert_features"],
         "in_y": ["ans_start", "ans_end"],
         "out": ["ans_start_predicted", "ans_end_predicted", "logits", "score",
-          "start_probs", "end_probs", "outer", "outer_logits", "yp_score", "y_st",  "y_end"]
+          "start_probs", "end_probs", "outer", "outer_logits"]
       },
       {
         "class_name": "squad_bert_ans_postprocessor",
@@ -56,7 +56,7 @@
       }
     ],
     "out": ["ans_predicted", "ans_start_predicted", "logits",
-      "start_probs", "end_probs", "outer", "outer_logits", "yp_score", "y_st", "y_end"]
+      "start_probs", "end_probs", "outer", "outer_logits"]
   },
   "train": {
     "show_examples": false,
