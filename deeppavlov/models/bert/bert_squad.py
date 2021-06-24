@@ -358,9 +358,13 @@ class BertSQuADInferModel(Component):
         answers, answer_starts, logits = [], [], []
         for ind in sorted(predictions.keys()):
             prediction = predictions[ind]
-            best_answer_ind = np.argmax([p[2] for p in prediction])
-            answers += [prediction[best_answer_ind][0]]
-            answer_starts += [prediction[best_answer_ind][1]]
-            logits += [prediction[best_answer_ind][2]]
+            answers += [[p[0] for p  in prediction]]
+            answer_starts += [[p[1] for p in prediction]]
+            logits += [[p[2] for p in prediction]]
+            # best_answer_ind = np.argmax([p[2] for p in prediction])
+            # answers += [prediction[best_answer_ind][0]]
+            # answer_starts += [prediction[best_answer_ind][1]]
+            # logits += [prediction[best_answer_ind][2]]
+
 
         return answers, answer_starts, logits
