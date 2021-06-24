@@ -261,7 +261,7 @@ class BertSQuADModel(LRScheduledTFModel):
 
         feed_dict = self._build_feed_dict(input_ids, input_masks, input_type_ids)
         st, end, logits, scores, start_probs, end_probs, outer, outer_logits = self.sess.run([self.start_pred, self.end_pred, self.yp_logits, self.yp_score,
-                                                 self.start_probs, self.end_probs],
+                                                 self.start_probs, self.end_probs, self.outer, self.outer_logits],
                                                 feed_dict=feed_dict)
         return st, end, logits.tolist(), scores.tolist(),\
                start_probs.tolist(), end_probs.tolist(), outer.tolist(), outer_logits.tolist()
